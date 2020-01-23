@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="nav">
-    <router-link tag="li" :to="{ name: 'frontend'}">Mes langages Front-End</router-link> |
+    <router-link tag="li" :to="{ name: 'frontend'}">Mes langages Front-End</router-link>
     <router-link tag="li" :to="{ name: 'backend'}">Mes langages Back-End</router-link>
   </div>
 </template>
@@ -19,7 +19,7 @@ export default {
   background: lightblue;
   display: flex;
   flex-flow: row;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   text-decoration: none;
   color: black;
@@ -32,8 +32,12 @@ export default {
 
 .nav li:hover{
   color: white;
-  box-shadow: ;
+  text-shadow: 0 0 3px black;
   transition: 0.7s;
+}
+
+.nav li:active{
+  color: #68A063;
 }
 
 </style>

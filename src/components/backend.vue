@@ -39,6 +39,8 @@ export default {
   display: flex;
   flex-flow: column;
   justify-content: space-around;
+  color: white;
+  background: #000000;
 }
 
 .backend h2{

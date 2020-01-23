@@ -49,6 +49,7 @@ export default {
   display: flex;
   flex-flow: column;
   justify-content: space-around;
+  background: #929292;
 }
 
 .frontend h2{
