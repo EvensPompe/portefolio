@@ -1,21 +1,30 @@
 <template lang="html">
-  <div class="haut">
-    <h1 id="name" @click="changeColor">Evens Pompe</h1>
-    <p>Développeur Web Full Stack JS</p>
+  <div class="haut invert">
+    <button @click="click">{{mode}}</button>
+    <div >
+    <h1 id="name" class="invert">Evens Pompe</h1>
+    <p class="invert">Développeur Web Full Stack JS {{ok}}</p>
+    </div>
   </div>
 </template>
 
 <script>
+import { mapActions, mapState } from "vuex";
 export default {
   name:'haut',
   data(){
-    return{
-      clicked:false
-    }
+   return{
+     ok:""
+   }
   },
+  computed:mapState([
+    'change',
+    'mode'
+  ]),
   methods:{
-    changeColor(){
-    }
+   ...mapActions([
+     'click'
+   ])
   }
 }
 </script>
@@ -27,7 +36,19 @@ export default {
   width: 100%;
   height: 400px;
   display: flex;
+  flex-flow: column;
   color: white;
+}
+
+.haut button{
+  width: 100px;
+  height: 30px;
+}
+
+.haut div{
+  width: 100%;
+  height: 100%;
+  display: flex;
   flex-flow: column nowrap;
   justify-content: center;
 }
