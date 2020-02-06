@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="frontend">
+  <div class="frontend" :class="{invert:change}">
    <h2>Front-End</h2>
    <div class="techs">
      <div class="techFront" v-for="img in images" :key="img.id">
@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   name:'frontend',
   data(){
@@ -38,7 +39,10 @@ export default {
         },
       ]
     }
-  }
+  },
+  computed:mapState([
+    "change"
+  ])
 }
 </script>
 
@@ -49,7 +53,8 @@ export default {
   display: flex;
   flex-flow: column;
   justify-content: space-around;
-  background: #929292;
+  color: black;
+  background: #FFFFFF;
 }
 
 .frontend h2{
@@ -76,5 +81,8 @@ export default {
   height: 50%;
 }
 
-
+.invert{
+  filter: invert(1);
+  transition: 0.6s;
+}
 </style>

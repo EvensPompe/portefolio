@@ -1,9 +1,9 @@
 <template lang="html">
-  <div class="haut invert">
+  <div class="haut" :class="{invert:change}">
     <button @click="click">{{mode}}</button>
-    <div >
-    <h1 id="name" class="invert">Evens Pompe</h1>
-    <p class="invert">Développeur Web Full Stack JS {{ok}}</p>
+    <div>
+    <h1 id="name">Evens Pompe</h1>
+    <p>Développeur Web Full Stack JS</p>
     </div>
   </div>
 </template>
@@ -14,7 +14,7 @@ export default {
   name:'haut',
   data(){
    return{
-     ok:""
+
    }
   },
   computed:mapState([
@@ -24,7 +24,7 @@ export default {
   methods:{
    ...mapActions([
      'click'
-   ])
+   ]),
   }
 }
 </script>
@@ -59,5 +59,10 @@ export default {
 
 .haut p{
   font-size: 50px;
+}
+
+.invert{
+  filter: invert(1);
+  transition: 0.6s;
 }
 </style>
