@@ -35,12 +35,18 @@ export default {
 
 .nav li{
   cursor: pointer;
+  width: 20%;
+  height: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .nav li:hover{
   color: white;
   text-shadow: 0 0 3px black;
   transition: 0.7s;
+  background: grey;
 }
 
 .nav li:active{

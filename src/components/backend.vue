@@ -3,7 +3,7 @@
    <h2>Back-End</h2>
    <div class="techs">
      <div class="techBack" v-for="img in images" :key="img.id">
-       <img :src="require(`@/assets/front/${img.tech}.png`)" :alt="img.alt">
+       <img :src="require(`@/assets/back/${img.tech}.png`)" :class="{invert:change}" :alt="img.alt">
        <p>{{img.text}}</p>
      </div>
    </div>
@@ -27,6 +27,11 @@ export default {
           alt: "image logo mysql",
           text: "MySQL est un système de gestion de bases de données relationnelles. Il est distribué sous une double licence GPL et propriétaire."
         },
+        {
+          tech:"mongodb",
+          alt: "image logo mongodb",
+          text: "MongoDB est un système de gestion de base de données orienté documents, répartissable sur un nombre quelconque d'ordinateurs et ne nécessitant pas de schéma prédéfini des données. Il est écrit en C++. Le serveur et les outils sont distribués sous licence SSPL, les pilotes sous licence Apache et la documentation sous licence Creative Commons. Il fait partie de la mouvance NoSQL."
+        },
       ]
     }
   },
@@ -47,6 +52,10 @@ export default {
   background: #FFFFFF;
 }
 
+.backend *{
+  animation: opacityTransition 0.3s;
+}
+
 .backend h2{
   font-size: 60px;
 }
@@ -55,7 +64,7 @@ export default {
   width: 100%;
   height: 100%;
   display: flex;
-  flex-flow: column;
+  flex-flow: row wrap;
   align-items: center;
 }
 
@@ -68,10 +77,5 @@ export default {
 .backend .techs .techBack img{
   width: 50%;
   height: 50%;
-}
-
-.invert{
-  filter: invert(1);
-  transition: 0.6s;
 }
 </style>

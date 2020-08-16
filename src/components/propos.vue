@@ -1,11 +1,9 @@
 <template lang="html">
-  <div class="propos">
+  <div class="propos" :class="{invert:change}">
    <p>J'étais bachelier du Baccalauréat Sciences et Technologies de l'industrie et du Développement durable (ou Bac STI2D en plus court) en 2016. <br>
       Pour continuer les études, j'avais envisagé de faire le cursus pour l'obtention du BTS Services informatiques et aux Organisation(SIO).<br>
       Avec comme option Solutions Logicielles et applications Métiers (SLAM). Mais ça n'avais pas marché !<br>
-      Pas d'entreprises, donc pas de contrat d'apprentissage ou pro !<br>
-      Perte de motivation !<br>
-      Situation difficile pro et personnel !<br>
+      Pas d'entreprises, donc pas de contrat d'apprentissage ou pro ! Perte de motivation ! Situation difficile pro et personnel !
       Faute de moyen financier pour payer la formation en cursus initial !<br>
       Après cette échec, je me suis mis à chercher un travail "Alimentaire" et une formation pour pouvoir continuer les études, avec la Mission Locale.<br>
       En même temps,j'ai commencé aussi à apprendre à coder en autodidacte en parallèle ! Via Codeacademy et Sololearn !<br>
@@ -15,8 +13,12 @@
 </template>
 
 <script>
+import {mapState} from "vuex"
 export default {
   name:'propos',
+  computed:mapState([
+    "change"
+  ])
 }
 </script>
 
@@ -32,8 +34,11 @@ export default {
   background: #FFFFFF;
 }
 
+.propos *{
+  animation: opacityTransition 0.3s;
+}
+
 .propos p{
   width: 90%;
-
 }
 </style>

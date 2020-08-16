@@ -1,16 +1,20 @@
 <template lang="html">
-  <div class="projets">
+  <div class="projets" :class="{invert:change}">
   <div class="projet" v-for="projet in projets" :key="projet._id">
     <h2>{{projet.nom}}</h2>
-    <img :src="projet.img" alt="projet.img">
+    <img :src="projet.img" alt="projet.img" :class="{invert:change}">
     <p>{{projet.desc}} <a :href="projet.lien" target="_blank">voir le site</a> </p>
   </div>
   </div>
 </template>
 
 <script>
+import {mapState} from "vuex"
 export default {
   name:'projet',
+  computed:mapState([
+    "change"
+  ]),
   data(){
     return {
       projets:""
@@ -41,6 +45,10 @@ export default {
   justify-content: space-around;
   color: black;
   background: #FFFFFF;
+}
+
+.projets *{
+  animation: opacityTransition 0.3s;
 }
 
 .projet{

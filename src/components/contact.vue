@@ -1,12 +1,13 @@
 <template lang="html">
-<div class="contact">
+<div class="contact" :class="{invert:change}">
   <div v-for="contact in contacts" :key="contact.id">
-    <a :href="contact.lien" target="_blank"><img :src="require(`@/assets/contact/${contact.img}.png`)" :alt="contact.img"></a>
+    <a :href="contact.lien" target="_blank"><img :src="require(`@/assets/contact/${contact.img}.png`)" :class="{invert:change}" :alt="contact.img"></a>
   </div>
 </div>
 </template>
 
 <script>
+import {mapState} from "vuex";
 export default {
   name:'contact',
   data(){
@@ -26,7 +27,10 @@ export default {
         }
       ]
     }
-  }
+  },
+  computed:mapState([
+    "change"
+  ])
 }
 </script>
 
@@ -45,6 +49,10 @@ export default {
 .contact div{
 width: 30%;
 height: 100%;
+}
+
+.contact *{
+  animation: opacityTransition 0.3s;
 }
 
 .contact div img{
